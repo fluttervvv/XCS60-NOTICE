@@ -48,14 +48,13 @@ public class NoticeSuspectController {
 	}
 
 	@RequestMapping("/NoticeSuspectinsAll")
-	public Object NoticeSuspectinsAll(OpsNoticeSuspect noticeSuspect) {
+	public Object NoticeSuspectinsAll(@RequestBody OpsNoticeSuspect noticeSuspect) {
 		try {
-			if (!noticeSuspectRepository.existsById(noticeSuspect.getSuspectID())) {
-				noticeSuspect.setIsActive((short) 1);
-				noticeSuspectRepository.save(noticeSuspect);
-				return ResponseBuilder.Success();
-			}
-			return ResponseBuilder.Error("duplicate noticeCode :" + noticeSuspect.getSuspectID());
+
+			noticeSuspect.setSuspectID(null);
+			noticeSuspect.setIsActive((short) 1);
+			noticeSuspectRepository.save(noticeSuspect);
+			return ResponseBuilder.Success();
 
 		} catch (Exception e) {
 			return ResponseBuilder.Error(e.getMessage());
@@ -63,13 +62,13 @@ public class NoticeSuspectController {
 	}
 
 	@RequestMapping("/NoticeSuspectupdByCon")
-	public Object NoticeSuspectupdByCon(OpsNoticeSuspect noticeSuspect) {
+	public Object NoticeSuspectupdByCon(@RequestBody OpsNoticeSuspect noticeSuspect) {
 		try {
-			if (!noticeSuspectRepository.existsById(noticeSuspect.getSuspectID())) {
+			if (noticeSuspectRepository.existsById(noticeSuspect.getSuspectID())) {
 				noticeSuspectRepository.save(noticeSuspect);
 				return ResponseBuilder.Success();
 			}
-			return ResponseBuilder.Error("duplicate noticeCode :" + noticeSuspect.getSuspectID());
+			return ResponseBuilder.Error("Not Found NoticeSuspect ID :" + noticeSuspect.getSuspectID());
 
 		} catch (Exception e) {
 			return ResponseBuilder.Error(e.getMessage());

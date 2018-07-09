@@ -25,7 +25,7 @@ public class NoticetInformerController {
 			if (oData.isPresent()) {
 				OpsNoticeInformer sData = oData.get();
 				sData.setIsActive((short) 0);
-				return ResponseBuilder.Success("Delete Success");
+				return ResponseBuilder.Success();
 			}
 			return ResponseBuilder.Error("NotFound Notice Staff :" + informerRequest.getInformerID());
 

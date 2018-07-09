@@ -22,6 +22,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
 /**
  *
  * @author Pratin
@@ -92,6 +95,7 @@ import javax.persistence.TemporalType;
     , @NamedQuery(name = "MasSuspect.findByLinkPhoto", query = "SELECT m FROM MasSuspect m WHERE m.linkPhoto = :linkPhoto")
     , @NamedQuery(name = "MasSuspect.findByPhotoDesc", query = "SELECT m FROM MasSuspect m WHERE m.photoDesc = :photoDesc")
     , @NamedQuery(name = "MasSuspect.findByIsActive", query = "SELECT m FROM MasSuspect m WHERE m.isActive = :isActive")})
+@JsonNaming(PropertyNamingStrategy.UpperCamelCaseStrategy.class)
 public class MasSuspect implements Serializable {
 
     private static final long serialVersionUID = 1L;

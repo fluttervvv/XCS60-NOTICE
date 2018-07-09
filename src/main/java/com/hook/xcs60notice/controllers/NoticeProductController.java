@@ -49,14 +49,14 @@ public class NoticeProductController {
 		}
 	}
 	
-	@RequestMapping("/NoticeProductupdDelete")
+	@RequestMapping("/NoticeproductupdDelete")
 	public Object NoticeInformerupdDelete(@RequestBody NoticeProductRequest productRequest) {
 		try {
 			Optional<OpsNoticeProduct> oData = noticeProductRepository.findById(productRequest.getProductID());
 			if (oData.isPresent()) {
 				OpsNoticeProduct sData = oData.get();
 				sData.setIsActive((short) 0);
-				return ResponseBuilder.Success("Delete Success");
+				return ResponseBuilder.Success();
 			}
 			return ResponseBuilder.Error("NotFound Product ID :" + productRequest.getProductID());
 

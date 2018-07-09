@@ -3,6 +3,7 @@ package com.hook.xcs60notice.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,12 +19,16 @@ public class SuspectController {
 	SuspectRepository suspectRepository;
 
 	@RequestMapping("/SuspectgetByConAdv")
-	public Object SuspectgetByConAdv(SuspectgetByConAdvRequest advRequest) {
+	public Object SuspectgetByConAdv(@RequestBody SuspectgetByConAdvRequest advRequest) {
 		try {
 
-			List<MasSuspect> masSuspects = suspectRepository.suspectgetByConAdv(advRequest.getSuspectType(),
-					advRequest.getEntityType(), advRequest.getiDCard(), advRequest.getPassportNo(),
-					advRequest.getCompanyTitleCode(), advRequest.getCompanyName(), advRequest.getSuspectTitleName(),
+			List<MasSuspect> masSuspects = suspectRepository.suspectgetByConAdv(
+					advRequest.getSuspectType(),
+					advRequest.getEntityType(), 
+					advRequest.getiDCard(), 
+					advRequest.getPassportNo(),
+					advRequest.getCompanyTitleCode(), 
+					advRequest.getCompanyName(), advRequest.getSuspectTitleName(),
 					advRequest.getSuspectFirstName(), advRequest.getSuspectLastName());
 
 			return ResponseBuilder.Success(masSuspects);

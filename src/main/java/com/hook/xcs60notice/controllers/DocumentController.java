@@ -27,7 +27,7 @@ public class DocumentController {
 			if (oData.isPresent()) {
 				OpsDocument sData = oData.get();
 				sData.setIsActive(BigInteger.valueOf(0));
-				return ResponseBuilder.Success("Delete Success");
+				return ResponseBuilder.Success();
 			}
 			return ResponseBuilder.Error("NotFound Notice :" + documentRequest.getDocumentID());
 

@@ -17,5 +17,11 @@ public class CommunicationChanelRequest {
 		this.communicationChanelID = communicationChanelID;
 	}
 	
+	public void setCommunicationChanelID(String communicationChanelID) {
+		this.communicationChanelID = new BigDecimal(communicationChanelID);
+	}
+	
+	
+	
 	
 }

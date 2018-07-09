@@ -13,7 +13,7 @@ public interface NoticeSuspectRepository extends CrudRepository<OpsNoticeSuspect
 	
 	@Query("select t from OpsNoticeSuspect t "
 			+ " where t.isActive = 1 and "
-			+ " ( t.suspectReferenceID like %:keyword% "
+			+ " ( concat(t.suspectReferenceID,'') like %:keyword% "
 			+ " or t.noticeCode like %:keyword% "
 			+ " or t.suspectTitleName like %:keyword% "
 			+ " or t.suspectFirstName like %:keyword% "

@@ -21,7 +21,7 @@ public class NoticeLocaleController {
 	@Autowired
 	NoticeLocaleRepository noticeLocaleRepository;
 	
-	@RequestMapping("/NoticeLocalegetByKeyword")
+	@RequestMapping("/NoticelocalgetByKeyword")
 	public Object NoticeLocalegetByKeyword(@RequestBody TextsearchRequest textsearchRequest) {
 		try {
 			List<OpsNoticeLocale> noticeSuspects = noticeLocaleRepository
@@ -40,7 +40,7 @@ public class NoticeLocaleController {
 			if (oData.isPresent()) {
 				OpsNoticeLocale sData = oData.get();
 				sData.setIsActive((short) 0);
-				return ResponseBuilder.Success("Delete Success");
+				return ResponseBuilder.Success();
 			}
 			return ResponseBuilder.Error("NotFound NoticeLocal ID :" + noticeLocalRequest.getLocaleID());
 

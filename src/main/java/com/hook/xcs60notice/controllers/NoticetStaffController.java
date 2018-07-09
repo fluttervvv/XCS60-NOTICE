@@ -28,7 +28,7 @@ public class NoticetStaffController {
 			if (oData.isPresent()) {
 				OpsNoticeStaff sData = oData.get();
 				sData.setIsActive((short) 0);
-				return ResponseBuilder.Success("Delete Success");
+				return ResponseBuilder.Success();
 			}
 			return ResponseBuilder.Error("NotFound Notice Staff :" + noticetStaffRequest.getStaffID());
 

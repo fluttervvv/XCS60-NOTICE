@@ -9,9 +9,9 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 @JsonNaming(PropertyNamingStrategy.UpperCamelCaseStrategy.class)
 public class SuspectgetByConAdvRequest {
 
-	BigDecimal suspectType ;
+	Short suspectType ;
 	
-	BigDecimal entityType;
+	Short entityType;
 	
 	@JsonProperty("IDCard")
 	String iDCard ;
@@ -28,19 +28,19 @@ public class SuspectgetByConAdvRequest {
 	
 	String suspectLastName;
 
-	public BigDecimal getSuspectType() {
+	public Short getSuspectType() {
 		return suspectType;
 	}
 
-	public void setSuspectType(BigDecimal suspectType) {
+	public void setSuspectType(Short suspectType) {
 		this.suspectType = suspectType;
 	}
 
-	public BigDecimal getEntityType() {
+	public Short getEntityType() {
 		return entityType;
 	}
 
-	public void setEntityType(BigDecimal entityType) {
+	public void setEntityType(Short entityType) {
 		this.entityType = entityType;
 	}
 

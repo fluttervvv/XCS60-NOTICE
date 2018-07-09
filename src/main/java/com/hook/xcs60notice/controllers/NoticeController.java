@@ -98,7 +98,7 @@ public class NoticeController {
 			if (oData.isPresent()) {
 				OpsNotice sData = oData.get();
 				sData.setIsActive((short) 0);
-				return ResponseBuilder.Success("Delete Success");
+				return ResponseBuilder.Success();
 			}
 			return ResponseBuilder.Error("NotFound Notice :" + noticeRequest.getNoticeCode());
 

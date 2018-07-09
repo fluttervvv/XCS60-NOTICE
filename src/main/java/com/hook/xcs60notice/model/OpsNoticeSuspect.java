@@ -19,6 +19,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
@@ -162,6 +163,7 @@ public class OpsNoticeSuspect implements Serializable {
         return noticeCode;
     }
 
+    @JsonProperty("NoticeCode")
     public void setNoticeCode(String noticeCode) {
         this.noticeCode = noticeCode;
     }
